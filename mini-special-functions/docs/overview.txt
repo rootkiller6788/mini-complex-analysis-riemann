@@ -1,0 +1,47 @@
+MiniSpecialFunctions - Package Overview
+=======================================
+
+The mini-special-functions package provides Lean 4 definitions and
+theorems for classical special functions of complex analysis.
+
+Core Functions
+--------------
+1. ComplexExponential (e^z)        - Entire, periodic 2*pi*i
+2. ComplexTrig (sin z, cos z, tan z) - Via Euler formulas
+3. ComplexLogarithm (principal branch) - Multivalued, branch cut (-inf,0]
+4. ComplexPower (z^alpha)          - z^alpha = exp(alpha * log z)
+5. GammaFunction (Gamma(z))        - Meromorphic, poles at 0,-1,-2,...
+6. RiemannZeta (zeta(s))           - Meromorphic, simple pole at s=1
+7. WeierstrassP (wp(z; Lambda))    - Doubly periodic elliptic
+8. JacobiTheta (theta(z; tau))     - Quasi-doubly periodic
+9. ModularForms                     - f(M*tau) = (c*tau+d)^k f(tau)
+
+Core Theorems
+-------------
+- Euler reflection: Gamma(z)*Gamma(1-z) = pi/sin(pi*z)
+- Legendre duplication: Gamma(z)*Gamma(z+1/2) = 2^(1-2z)*sqrt(pi)*Gamma(2z)
+- Zeta functional equation: zeta(s) = 2^s*pi^(s-1)*sin(pi*s/2)*Gamma(1-s)*zeta(1-s)
+- Jacobi triple product identity
+- Weierstrass PDE: (wp')^2 = 4*wp^3 - g2*wp - g3
+- Modularity of theta functions
+- Classification of elliptic functions
+- Modular forms graded ring = C[E4, E6]
+- Bohr-Mollerup: Gamma is unique log-convex factorial extension
+
+Package Structure
+-----------------
+MiniSpecialFunctions/
+  Core/          Basic definitions, Laws, Object instances
+  Morphisms/     Functional equations, Modular transformations
+  Constructions/ Products, Quotients, Subobjects, Universal properties
+  Properties/    Invariants, Preservation, Classification data
+  Theorems/      Basic, Classification, Main, UniversalProperties
+  Examples/      Standard values, Counterexamples
+  Bridges/       ToAlgebra, ToTopology, ToGeometry, ToComputation
+
+Dependencies
+------------
+- mini-object-kernel (Object typeclass)
+- mini-complex-numbers (Complex numbers)
+- mini-holomorphic-functions (Holomorphic function theory)
+- mini-complex-integration (Complex integration)

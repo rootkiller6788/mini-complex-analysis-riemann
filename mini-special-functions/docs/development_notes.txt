@@ -1,0 +1,57 @@
+MiniSpecialFunctions - Development Notes
+========================================
+
+Design Philosophy
+-----------------
+This package follows the mini-everything-math architectural pattern:
+- Every mathematical structure gets an Object instance (via MiniObjectKernel)
+- Theorems are stated with `sorry` for deep proofs (placeholder mode)
+- Every source file includes `#eval` tests for verification
+- Bridges connect to algebra, topology, geometry, and computation packages
+- The `MiniMathKernel` import provides the Object typeclass foundation
+
+Implementation Status
+---------------------
+The current implementation provides:
+1. Realistic numerical approximations of all special functions
+2. Correct structural definitions (ModularForm, EllipticCurve, etc.)
+3. Theorem statements with `sorry` (proofs are placeholders)
+4. Full #eval test coverage in every source file
+5. Complete Object typeclass integration
+
+Proof Status
+------------
+All deep theorems are marked `sorry`:
+- Euler reflection formula proof
+- Legendre duplication proof
+- Zeta functional equation proof (requires complex analysis)
+- Jacobi triple product (requires q-series theory)
+- Weierstrass PDE (requires elliptic function theory)
+- Classification theorems (require advanced algebra)
+- Bohr-Mollerup theorem (requires convex analysis)
+
+These are non-trivial proofs requiring:
+- Complex analysis (Cauchy, residues, contour integration)
+- Elliptic function theory (Liouville, Weierstrass)
+- Modular forms (Fourier expansion, valence formula)
+- Analytic number theory (zeta, L-functions)
+
+Extensions Planned
+------------------
+- Hecke operators and eigenforms
+- L-functions of modular forms
+- Modular symbols
+- Maass forms
+- Hypergeometric functions
+- q-Pochhammer symbols and q-series
+- Ramanujan tau function
+- Dedekind eta function and partition function
+
+Testing
+-------
+- Test/Basic.lean: Core function evaluations
+- Test/Laws.lean: Identity and law verifications
+- Test/Objects.lean: Object typeclass tests
+- Benchmark/: Individual and full suite benchmarks
+- Computation/python/: Python reference implementations
+- Computation/sage/: SageMath symbolic verification

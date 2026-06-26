@@ -1,0 +1,146 @@
+MiniSpecialFunctions - API Reference
+====================================
+
+Namespace: MiniSpecialFunctions
+
+Core.Basic
+----------
+  complexExp (z : ComplexNumbers) : ComplexNumbers
+  complexSin (z : ComplexNumbers) : ComplexNumbers
+  complexCos (z : ComplexNumbers) : ComplexNumbers
+  complexTan (z : ComplexNumbers) : ComplexNumbers
+  complexLog (z : ComplexNumbers) : ComplexNumbers
+  complexPower (z alpha : ComplexNumbers) : ComplexNumbers
+  gammaApprox (x : Float) : Float
+  gammaHalf : Float
+  zetaPartialSum (s : Float) (N : Nat) : Float
+  zetaTwo : Float
+  zetaNegOne : Float
+  weierstrassG2 (omega1 omega2 : Float) : Float
+  weierstrassG3 (omega1 omega2 : Float) : Float
+  weierstrassPDE (wp wp' g2 g3 : Float) : Prop
+  jacobiTheta (z : Float) (tau : ComplexNumbers) (N : Nat) : ComplexNumbers
+  ModularForm (structure) : weight, f, holomorphic, moderateGrowth
+  eisensteinSeries (k : Nat) (tau : ComplexNumbers) (M : Nat) : ComplexNumbers
+  factorial (n : Nat) : Float
+
+Core.Laws
+---------
+  eulerFormula (z : ComplexNumbers) : Prop
+  expPeriodicity (z : ComplexNumbers) : Prop
+  logarithmLaw (z w : ComplexNumbers) : Prop
+  gammaFunctionalEqn (x : Float) : Prop
+  gammaFactorial (n : Nat) : Prop
+  zetaTwoValue : Prop
+  zetaNegOneValue : Prop
+  weierstrassEqn (wp wp' g2 g3 : Float) : Prop
+
+Core.Objects
+------------
+  SpecialFunction (structure) : name, domain, range, singularities, functionalEquation
+  gammaFunction : SpecialFunction
+  zetaFunction : SpecialFunction
+  thetaFunction : SpecialFunction
+  weierstrassPFunction : SpecialFunction
+  specialFunctionsCatalog : List SpecialFunction
+  describeSpecialFunction (sf : SpecialFunction) : String
+
+Morphisms.Hom
+-------------
+  FunctionalEquation (structure)
+  ModularTransformation (structure)
+  modularAction (M : ModularTransformation) (tau : ComplexNumbers) : ComplexNumbers
+  modularS : ModularTransformation
+  modularT : ModularTransformation
+
+Morphisms.Iso
+-------------
+  EulerGamma / WeierstrassGamma / BohrMollerupGamma (structures)
+  gammaCharacterizationsEquivalent : Prop
+  CompletedZeta (structure)
+  zetaSymmetricCompleted : Prop
+
+Morphisms.Equiv
+---------------
+  gammaEulerDef / gammaWeierstrassDef / gammaLimitDef
+  gammaDefinitionsEquivalent : Prop
+  zetaEulerProduct (s : Float) (N : Nat) : Float
+  zetaDefinitionsEquivalent : Prop
+
+Constructions.Products
+----------------------
+  HadamardFactorization (structure)
+  gammaProduct (z : Float) (N : Nat) : Float
+  zetaEulerProductFormula (s : Float) (maxP : Nat) : Float
+  jacobiTripleProduct (x z : Float) (N : Nat) : Float
+
+Constructions.Quotients
+-----------------------
+  ThetaQuotient (structure)
+  jInvariant (tau : ComplexNumbers) : Float
+  discriminantForm : ModularForm
+  eisensteinAsModularForm (k : Nat) (tau : ComplexNumbers) : ModularForm
+
+Constructions.Subobjects
+------------------------
+  ElementaryFunction (inductive type)
+  SpecialFunctionType (inductive type)
+  isSubfunctionOf (a b : SpecialFunctionType) : Bool
+
+Constructions.Universal
+-----------------------
+  BohrMollerupCandidate (structure)
+  lerchTranscendent (z s a : Float) (N : Nat) : Float
+  zetaAsLerch (s : Float) (N : Nat) : Float
+  DirichletEta (s : Float) (N : Nat) : Float
+
+Properties.Invariants
+---------------------
+  Lattice / EllipticPeriod / ModularWeight (structures)
+  Level / DirichletCharacter (structures)
+  FunctionalEquationType (inductive type)
+  functionalEquationTypeOf (name : String) : FunctionalEquationType
+
+Properties.Preservation
+-----------------------
+  criticalStrip (s : ComplexNumbers) : Prop
+
+Properties.ClassificationData
+-----------------------------
+  EllipticClassification (structure)
+  dimModularFormsSpace (k : Nat) : Nat
+  bernoulliNumber (n : Nat) : Float
+  modularFormGenerators : List (Nat x String)
+
+Theorems.Basic
+--------------
+  eulerReflectionFormula (theorem)
+  legendreDuplicationFormula (theorem)
+  zetaFunctionalEquation (theorem)
+  jacobiTripleProductIdentity (theorem)
+  weierstrassDifferentialEquation (theorem)
+  thetaModularTransformationTheorem (theorem)
+
+Bridges.ToAlgebra
+-----------------
+  GradedModularFormRing / HeckeOperator / HeckeEigenform (structures)
+  weightOfProduct (a b : Nat) : Nat
+
+Bridges.ToTopology
+------------------
+  fundamentalDomain (tau : ComplexNumbers) : Prop
+  sqrtRiemannSurface (z : ComplexNumbers) : List ComplexNumbers
+
+Bridges.ToGeometry
+------------------
+  EllipticCurve (structure)
+  weierstrassEllipticCurve (omega1 omega2 : Float) : EllipticCurve
+  RiemannTheta (structure)
+
+Bridges.ToComputation
+---------------------
+  stirlingLogGamma / stirlingGamma / stirlingError
+  zetaEulerMaclaurin (s : Float) (N M : Nat) : Float
+  agm (a b : Float) (iterations : Nat) : Float
+  completeEllipticKAGM (k : Float) (iterations : Nat) : Float
+  gammaLanczos (z : Float) : Float
