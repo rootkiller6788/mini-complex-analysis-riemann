@@ -25,7 +25,7 @@ structure WindingFundamentalGroup (Ω : Set ℂ) (z₀ : ℂ) where
   fundamentalGroup : Type
   abelianization : Type
   -- π₁(Ω, z₀)^ab ≅ H₁(Ω, ℤ)
-  windingNumberIsDegree : windingNumber (Contour.mk (λ _ => ComplexNumbers.mk 0 0) 0 1 (by sorry) (by sorry) 1) z₀ = 0
+  windingNumberIsDegree : windingNumber (trivialContour (ComplexNumbers.mk 0 0)) z₀ = 0
 
 /-! ## Covering Spaces -/
 

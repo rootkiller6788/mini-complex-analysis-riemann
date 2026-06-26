@@ -16,8 +16,12 @@ the mini-everything-math ecosystem. It imports all submodules.
 - `Theorems`     — Cauchy-Riemann, Liouville, identity theorem, Picard theorems
 - `Examples`     — Standard entire functions and counterexamples
 - `Bridges`      — ToAlgebra, ToTopology, ToGeometry, ToComputation
+- `ProofTechniques` — Multiple proof methods (cases, induction, contradiction, decidable equality)
+- `Applications` — Fluid dynamics, signal processing, number theory
+- `Advanced`     — Sheaf cohomology, Dolbeault, Bergman kernel, Nevanlinna theory, Oka principle
 -/
 
+import MiniHolomorphicFunctions.KernelCompat
 import MiniHolomorphicFunctions.Core.Basic
 import MiniHolomorphicFunctions.Core.Objects
 import MiniHolomorphicFunctions.Core.Laws
@@ -41,3 +45,6 @@ import MiniHolomorphicFunctions.Bridges.ToAlgebra
 import MiniHolomorphicFunctions.Bridges.ToTopology
 import MiniHolomorphicFunctions.Bridges.ToGeometry
 import MiniHolomorphicFunctions.Bridges.ToComputation
+import MiniHolomorphicFunctions.ProofTechniques
+import MiniHolomorphicFunctions.Applications
+import MiniHolomorphicFunctions.Advanced

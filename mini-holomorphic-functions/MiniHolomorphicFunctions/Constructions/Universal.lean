@@ -6,21 +6,21 @@ category of holomorphic function rings.
 -/
 
 import MiniHolomorphicFunctions.Constructions.Products
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
 /-! ## Ring of Holomorphic Functions -/
 
-/-- O(D): the ring (â„‚-algebra) of holomorphic functions on D. -/
-structure HolomorphicFunctionRing (D : Set â„‚) where
+/-- O(D): the ring (â„?algebra) of holomorphic functions on D. -/
+structure HolomorphicFunctionRing (D : Set â„? where
   functions : List (HolomorphicFunction D)
   zero : HolomorphicFunction D
   one : HolomorphicFunction D
-  add : HolomorphicFunction D â†’ HolomorphicFunction D â†’ HolomorphicFunction D
-  mul : HolomorphicFunction D â†’ HolomorphicFunction D â†’ HolomorphicFunction D
+  add : HolomorphicFunction D â†?HolomorphicFunction D â†?HolomorphicFunction D
+  mul : HolomorphicFunction D â†?HolomorphicFunction D â†?HolomorphicFunction D
   isCommutativeRing : Prop
   isCAlgebra : Prop
 
@@ -51,18 +51,18 @@ def powerSeriesRingUniversal : Axiom :=
 
 /-- Category HolRing: objects are rings O(D), morphisms are pullback maps. -/
 structure HolomorphicFunctionRingCategory where
-  objects : List (Set â„‚)
-  morphism : HolomorphicFunctionRing D â†’ HolomorphicFunctionRing E â†’ Type
+  objects : List (Set â„?
+  morphism : HolomorphicFunctionRing D â†?HolomorphicFunctionRing E â†?Type
 
-/-- Pullback map Ï†*: O(V) â†’ O(U) for a holomorphic map Ï†: U â†’ V. -/
+/-- Pullback map Ï†*: O(V) â†?O(U) for a holomorphic map Ï†: U â†?V. -/
 def pullbackMap : Axiom :=
   Axiom.mk "pullbackMap" (Formula.pred 0 [])
-    "For Ï†: U â†’ V holomorphic, Ï†*: O(V) â†’ O(U), Ï†*(f) = fâˆ˜Ï† is a â„‚-algebra homomorphism"
+    "For Ï†: U â†?V holomorphic, Ï†*: O(V) â†?O(U), Ï†*(f) = fâˆ˜Ï?is a â„?algebra homomorphism"
 
-/-- Sheaf property: holomorphic functions form a sheaf on â„‚. -/
+/-- Sheaf property: holomorphic functions form a sheaf on â„? -/
 def holomorphicSheafProperty : Axiom :=
   Axiom.mk "holomorphicSheafProperty" (Formula.pred 0 [])
-    "The assignment D â†¦ O(D) is a sheaf of â„‚-algebras on â„‚"
+    "The assignment D â†?O(D) is a sheaf of â„?algebras on â„?
 
 /-! ## #eval Tests -/
 

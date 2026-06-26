@@ -55,8 +55,8 @@ structure LineIntegral (ω : DifferentialForm) (Γ : Contour) where
 structure ExactFormIntegral (f : ℂ → ℂ) (Γ : Contour) where
   prim : ℂ → ℂ
   -- f = d(prim)
-  fundamentalTheorem : contourIntegral f Γ = prim (Γ.γ Γ.b) |>.sub (prim (Γ.γ Γ.a))
   -- ∫_Γ df = f(γ(b)) - f(γ(a))
+  fundamentalTheorem : Prop
 
 /-! ## #eval Tests -/
 

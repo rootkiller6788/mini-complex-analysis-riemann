@@ -7,9 +7,9 @@ derivative rules, holomorphic algebra, global properties.
 
 import MiniHolomorphicFunctions.Core.Basic
 import MiniHolomorphicFunctions.Core.Objects
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
@@ -28,7 +28,7 @@ def productRule : Axiom :=
 /-- Quotient rule for complex derivative: (f/g)' = (f'g - fg')/g². -/
 def quotientRule : Axiom :=
   Axiom.mk "quotientRule" (Formula.pred 0 [])
-    "For f, g holomorphic at z₀, g(z₀) ≠ 0, (f/g)'(z₀) = (f'(z₀)g(z₀) - f(z₀)g'(z₀))/(g(z₀))²"
+    "For f, g holomorphic at z₀, g(z₀) �?0, (f/g)'(z₀) = (f'(z₀)g(z₀) - f(z₀)g'(z₀))/(g(z₀))²"
 
 /-- Chain rule for complex derivative: (g∘f)' = (g'∘f) * f'. -/
 def chainRule : Axiom :=
@@ -41,10 +41,10 @@ def derivativeRules : AxiomSystem :=
 
 /-! ## Algebra of Holomorphic Functions -/
 
-/-- Holomorphic functions on a domain form a ℂ-algebra. -/
+/-- Holomorphic functions on a domain form a �?algebra. -/
 def holomorphicFunctionsFormAlgebra : Axiom :=
   Axiom.mk "holomorphicFunctionsFormAlgebra" (Formula.pred 0 [])
-    "The set of holomorphic functions on a domain D forms a ℂ-algebra under pointwise addition and multiplication"
+    "The set of holomorphic functions on a domain D forms a �?algebra under pointwise addition and multiplication"
 
 /-- If f'(z) = 0 for all z in a domain, then f is constant. -/
 def zeroDerivativeImpliesConstant : Axiom :=
@@ -54,7 +54,7 @@ def zeroDerivativeImpliesConstant : Axiom :=
 /-- Identity theorem: holomorphic functions agreeing on a set with a limit point are identical. -/
 def identityTheorem : Axiom :=
   Axiom.mk "identityTheorem" (Formula.pred 0 [])
-    "If f, g are holomorphic on a domain D and agree on a subset S with a limit point in D, then f ≡ g on D"
+    "If f, g are holomorphic on a domain D and agree on a subset S with a limit point in D, then f �?g on D"
 
 /-- Open mapping theorem: non-constant holomorphic functions map open sets to open sets. -/
 def openMappingTheorem : Axiom :=

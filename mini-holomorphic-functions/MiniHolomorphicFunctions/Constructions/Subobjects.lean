@@ -2,46 +2,43 @@
 # MiniHolomorphicFunctions.Constructions.Subobjects
 
 Spaces of holomorphic functions on a domain:
-H(D), H^‚àû(D), A(D), Bergman space.
+H(D), H^‚à?D), A(D), Bergman space.
 -/
 
 import MiniHolomorphicFunctions.Core.Objects
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
 /-! ## Holomorphic Function Spaces -/
 
 /-- H(D): the space of all holomorphic functions on a domain D. -/
-structure HD (D : Set ‚ÑÇ) where
+structure HD (D : Set ‚Ñ? where
   functions : List (HolomorphicFunction D)
   topology : String := "compact-open topology (uniform convergence on compacta)"
   isFr√©chetSpace : Prop
 
-/-- H^‚àû(D): bounded holomorphic functions on D. -/
-structure HInfinity (D : Set ‚ÑÇ) where
+/-- H^‚à?D): bounded holomorphic functions on D. -/
+structure HInfinity (D : Set ‚Ñ? where
   functions : List (HolomorphicFunction D)
-  supNorm : ‚Ñù
-  isBounded : ‚àÄ f, f ‚àà functions ‚Üí Prop  -- sup|f| < ‚àû
-  isBanachAlgebra : Prop
+  supNorm : ‚Ñ?  isBounded : ‚àÄ f, f ‚à?functions ‚Ü?Prop  -- sup|f| < ‚à?  isBanachAlgebra : Prop
 
-/-- The supremum norm on H^‚àû(D). -/
-def supNorm (f : HolomorphicFunction D) : ‚Ñù := 0  -- placeholder
+/-- The supremum norm on H^‚à?D). -/
+def supNorm (f : HolomorphicFunction D) : ‚Ñ?:= 0  -- placeholder
 
 /-! ## Disc Algebra -/
 
-/-- A(D): the disc algebra ‚Äî functions holomorphic on the unit disc
+/-- A(D): the disc algebra ‚Ä?functions holomorphic on the unit disc
     and continuous on its closure. -/
 structure DiscAlgebra where
-  disc : Set ‚ÑÇ := {z | ComplexNumbers.modulus z < 1}
-  closure : Set ‚ÑÇ := {z | ComplexNumbers.modulus z ‚â§ 1}
-  function : ‚ÑÇ ‚Üí ‚ÑÇ
-  isHolomorphicOnDisc : Prop
+  disc : Set ‚Ñ?:= {z | ComplexNumbers.modulus z < 1}
+  closure : Set ‚Ñ?:= {z | ComplexNumbers.modulus z ‚â?1}
+  function : ‚Ñ?‚Ü?‚Ñ?  isHolomorphicOnDisc : Prop
   isContinuousOnClosure : Prop
 
-/-- A(D) as a closed subalgebra of C(‚àÇùîª). -/
+/-- A(D) as a closed subalgebra of C(‚àÇùî?. -/
 def discAlgebraAsClosedSubalgebra : Axiom :=
   Axiom.mk "discAlgebraAsClosedSubalgebra" (Formula.pred 0 [])
     "A(ùîª) is a closed subalgebra of C(ùïã) via the boundary values of holomorphic functions"
@@ -49,16 +46,13 @@ def discAlgebraAsClosedSubalgebra : Axiom :=
 /-! ## Bergman Space -/
 
 /-- Bergman space A¬≤(D): holomorphic functions square-integrable w.r.t. area measure. -/
-structure BergmanSpace (D : Set ‚ÑÇ) where
+structure BergmanSpace (D : Set ‚Ñ? where
   functions : List (HolomorphicFunction D)
-  areaMeasure : ‚ÑÇ ‚Üí ‚Ñù
-  isL2 : Prop  -- ‚à´_D |f|¬≤ dA < ‚àû
-  bergmanKernel : ‚ÑÇ ‚Üí ‚ÑÇ ‚Üí ‚ÑÇ
-
+  areaMeasure : ‚Ñ?‚Ü?‚Ñ?  isL2 : Prop  -- ‚à´_D |f|¬≤ dA < ‚à?  bergmanKernel : ‚Ñ?‚Ü?‚Ñ?‚Ü?‚Ñ?
 /-- The Bergman kernel K_D(z,w) is the reproducing kernel for A¬≤(D). -/
 def bergmanKernel : Axiom :=
   Axiom.mk "bergmanKernel" (Formula.pred 0 [])
-    "K_D: D√óD ‚Üí ‚ÑÇ is the reproducing kernel for the Bergman space A¬≤(D)"
+    "K_D: D√óD ‚Ü?‚Ñ?is the reproducing kernel for the Bergman space A¬≤(D)"
 
 /-- Bergman metric from the Bergman kernel: ds¬≤ = ‚àÇ‚àÇÃÑ log K(z,z). -/
 def bergmanMetric : Axiom :=

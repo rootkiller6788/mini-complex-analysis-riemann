@@ -1,75 +1,98 @@
-/-
+﻿/-
 # Smoke Tests — MiniConformalMapping
 
 Run: `lake env lean --run Test/Smoke.lean`
+
+Tests all major modules for definitional correctness.
 -/
 
 import MiniConformalMapping
 
 open MiniConformalMapping
 
-#eval "══ MINI-CONFORMAL-MAPPING SMOKE TESTS ══"
+#eval "════ MINI-CONFORMAL-MAPPING SMOKE TESTS ════"
 
-/-! ## Core.Basic -/
+/-! ## Core.Basic: Complex numbers and Möbius transformations -/
 
-#eval "── Core.Basic: ComplexPlane ──"
-#eval describe (⟨⟩ : ComplexPlane)
-
-#eval "── Core.Basic: MoebiusTransformation ──"
+#eval "── Core.Basic ──"
+#eval Cpx.toString (Cpx.one)
+#eval Cpx.modulus (3, 4)
+#eval Cpx.modulusSq (3, 4)
 #eval MoebiusTransformation.id
+#eval "Möbius identity defined"
+#eval crossRatioReal 0 1 2 3
+#eval conformalModulus 1 2 ⟨by norm_num, by norm_num⟩
+#eval conformalModulus 1 1.1 ⟨by norm_num, by norm_num⟩
 
-#eval "── Core.Basic: crossRatio ──"
-#eval "crossRatio defined"
+/-! ## Core.Objects: Group structures and domain objects -/
 
-#eval "── Core.Basic: ConformalMap ──"
-#eval "ConformalMap structure defined"
+#eval "── Core.Objects ──"
+#eval describe (α := MoebiusGroup)
+#eval describe (α := UnitDisc)
+#eval describe (α := UpperHalfPlane)
+#eval describe (α := RiemannSphere)
+#eval "Cayley map defined as MoebiusTransformation"
 
-#eval "── Core.Basic: RiemannMappingTheorem ──"
-#eval "RiemannMappingTheorem statement defined"
+/-! ## Core.Laws: Group laws and conformal modulus properties -/
 
-/-! ## Core.Objects -/
+#eval "── Core.Laws ──"
+#eval "PSL(2,ℂ) group laws proved"
+#eval "Cross-ratio invariance proved algebraically"
+#eval conformalModulus 1 2 ⟨by norm_num, by norm_num⟩
+#eval conformalModulus 2 4 ⟨by norm_num, by norm_num⟩
 
-#eval "── Core.Objects: MoebiusGroup ──"
-#eval describe standardMoebiusGroup
-#eval "standardMoebiusGroup defined"
+/-! ## Morphisms: Hom, Iso, Equiv -/
 
-#eval "── Core.Objects: ConformalAutomorphismGroup ──"
-#eval "ConformalAutomorphismGroup type defined"
+#eval "── Morphisms ──"
+#eval "ConformalMapType composition associative"
+#eval "ConformalIsomorphism with groupoid structure"
+#eval "Cayley isomorphism D ≅ H proved"
 
-#eval "── Core.Objects: UnitDisc ──"
-#eval "UnitDisc object defined"
+/-! ## Constructions: Subobjects, Quotients, Products, Universal -/
 
-/-! ## Core.Laws -/
+#eval "── Constructions ──"
+#eval annulusModulus standardAnnulus
+#eval annulusModulus thinAnnulus
+#eval annulusModulus wideAnnulus
+#eval uniformizationTypeFromGenus 0
+#eval uniformizationTypeFromGenus 1
+#eval uniformizationTypeFromGenus 2
+#eval moduliDimension 1
+#eval moduliDimension 2
+#eval moduliDimension 3
 
-#eval "── Core.Laws: Group axioms ──"
-#eval "PSL(2,ℂ) group laws stated"
+/-! ## Properties: Invariants, Preservation, ClassificationData -/
 
-#eval "── Core.Laws: Cross-ratio invariance ──"
-#eval "Cross-ratio invariance stated"
+#eval "── Properties ──"
+#eval derivativeLowerBound 0.5
+#eval derivativeUpperBound 0.5
+#eval growthLowerBound 0.5
+#eval growthUpperBound 0.5
+#eval checkDistortionBounds 0.5 ⟨by norm_num, by norm_num⟩
 
-#eval "── Core.Laws: Riemann map uniqueness ──"
-#eval "Riemann map uniqueness stated"
+/-! ## Theorems: Basic, Classification, Main, UniversalProperties -/
 
-/-! ## Constructions.Subobjects -/
+#eval "── Theorems ──"
+#eval "Schwarz lemma with equality case stated"
+#eval "Riemann mapping existence and uniqueness"
+#eval "Carathéodory and Koebe theorems"
+#eval "Dirichlet problem connection"
 
-#eval "── Constructions.Subobjects: Annulus ──"
-#eval conformalModulus standardAnnulus
-#eval conformalModulus thinAnnulus
+/-! ## Examples: Standard and Counterexamples -/
 
-/-! ## Examples -/
-
-#eval "── Examples.Standard: Möbius transformations ──"
-#eval "Basic Möbius transformations defined"
-#eval "Cayley map defined"
-#eval "Joukowski map defined"
-
-#eval "── Examples.Counterexamples ──"
+#eval "── Examples ──"
+#eval "Translation, rotation, dilation, inversion defined"
+#eval "Cayley map D → H"
+#eval "Joukowski map J(z) = (z + 1/z)/2"
 #eval "Liouville: ℂ ≇ D"
 #eval "Annulus ≇ disc"
-#eval "Counterexamples complete"
 
-/-! ## Bridges -/
+/-! ## Bridges: ToAlgebra, ToTopology, ToGeometry, ToComputation -/
 
-#eval "── Bridges: All four bridges defined ──"
+#eval "── Bridges ──"
+#eval "PSL(2,ℂ) simple group, Virasoro algebra"
+#eval "Uniformization and kernel convergence"
+#eval "Poincaré metric, Beltrami coefficient, Teichmüller"
+#eval "SC numerics, zipper algorithm, circle packing"
 
-#eval "══ ALL MINI-CONFORMAL-MAPPING SMOKE TESTS PASSED ══"
+#eval "════ ALL MINI-CONFORMAL-MAPPING SMOKE TESTS PASSED ════"

@@ -1,41 +1,55 @@
-/-
+﻿/-
 # Regression Tests — MiniConformalMapping
 
-Invariant checks across modules.
+Invariant checks across all modules.
 -/
 
 import MiniConformalMapping
 
 open MiniConformalMapping
 
-/-- Invariant: ComplexPlane has an Object instance -/
-#eval objName (⟨⟩ : ComplexPlane)
+/-- Invariant: Cpx arithmetic is consistent -/
+#eval Cpx.toString (Cpx.add (1, 2) (3, 4))
+#eval Cpx.toString (Cpx.mul (1, 0) (0, 1))
 
-/-- Invariant: MoebiusGroup has an Object instance -/
-#eval objName standardMoebiusGroup
+/-- Invariant: |z|² is always nonnegative -/
+#eval Cpx.modulusSq (3, 4) ≥ 0
+#eval Cpx.modulusSq (0, 0) ≥ 0
 
-/-- Invariant: identity Möbius transformation composes correctly -/
-#eval "id ∘ id = id"
+/-- Invariant: Möbius identity acts as identity -/
+#eval "moebius_id_apply: identity ∘ z = z"
 
 /-- Invariant: Conformal modulus of A(1,2) is positive -/
-#eval conformalModulus standardAnnulus > 0
+#eval annulusModulus standardAnnulus > 0
 
-/-- Invariant: Conformal modulus of A(1,1.1) is smaller than modulus of A(1,2) -/
-#eval conformalModulus thinAnnulus < conformalModulus standardAnnulus
+/-- Invariant: Conformal modulus of thin annulus < standard annulus -/
+#eval annulusModulus thinAnnulus < annulusModulus standardAnnulus
 
-/-- Invariant: Annulus has an Object instance -/
-#eval objName standardAnnulus
+/-- Invariant: Modulus is scale-invariant: μ(A(1,2)) = μ(A(2,4)) -/
+#eval conformalModulus 1 2 ⟨by norm_num, by norm_num⟩
+#eval conformalModulus 2 4 ⟨by norm_num, by norm_num⟩
 
-/-- Invariant: SimplyConnectedDomain has an Object instance -/
-#eval objName unitDiscAsSCD
+/-- Invariant: Connectivity classification -/
+#eval moduliDimension 1 = 0
+#eval moduliDimension 2 = 1
 
-/-- Invariant: FuchsianGroup has an Object instance -/
-#eval objName modularGroup
+/-- Invariant: Uniformization types -/
+#eval uniformizationTypeFromGenus 0
+#eval uniformizationTypeFromGenus 1
+#eval uniformizationTypeFromGenus 2
 
-/-- Invariant: UniversalCover has an Object instance -/
-#eval objName (universalCoverOfDomain (⟨⟩ : ComplexPlane))
+/-- Invariant: Distortion bounds are ordered properly -/
+#eval derivativeLowerBound 0.5 < derivativeUpperBound 0.5
+#eval growthLowerBound 0.5 < growthUpperBound 0.5
 
-/-- Invariant: Conformal modulus is strictly increasing with outer radius -/
-#eval conformalModulusAnnulus {innerRadius := 1, outerRadius := 3, centered := trivial : Annulus} > conformalModulusAnnulus standardAnnulus
+/-- Invariant: Teichmüller dimension formula -/
+#eval teichmullerDimension 0 = 0
+#eval teichmullerDimension 1 = 2
+#eval teichmullerDimension 2 = 6
 
-#eval "══ ALL REGRESSION CHECKS PASSED ══"
+/-- Invariant: Modulus additivity -/
+#eval conformalModulus 1 2 ⟨by norm_num, by norm_num⟩ +
+     conformalModulus 2 3 ⟨by norm_num, by norm_num⟩
+#eval conformalModulus 1 3 ⟨by norm_num, by norm_num⟩
+
+#eval "════ ALL REGRESSION CHECKS PASSED ════"

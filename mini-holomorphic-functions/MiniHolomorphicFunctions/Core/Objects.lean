@@ -5,9 +5,9 @@ Object instances and theory registration for holomorphic function types.
 -/
 
 import MiniHolomorphicFunctions.Core.Basic
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
@@ -25,24 +25,18 @@ def meromorphicTheory : TheoryName :=
 /-! ## Structure Types -/
 
 /-- A holomorphic function on a domain U. -/
-structure HolomorphicFunction (U : Set â„‚) where
-  f : â„‚ â†’ â„‚
-  domain : Set â„‚
-  isDomain : Prop
-  isHolomorphic : âˆ€ z, z âˆˆ U â†’ isComplexDifferentiable f z
+structure HolomorphicFunction (U : Set â„? where
+  f : â„?â†?â„?  domain : Set â„?  isDomain : Prop
+  isHolomorphic : âˆ€ z, z âˆ?U â†?isComplexDifferentiable f z
 
-/-- An entire function (holomorphic on all of â„‚). -/
+/-- An entire function (holomorphic on all of â„?. -/
 structure EntireFunction where
-  f : â„‚ â†’ â„‚
-  isEntire : âˆ€ z : â„‚, isComplexDifferentiable f z
+  f : â„?â†?â„?  isEntire : âˆ€ z : â„? isComplexDifferentiable f z
 
 /-- A meromorphic function on U (holomorphic except at isolated poles). -/
-structure MeromorphicFunction (U : Set â„‚) where
-  f : â„‚ â†’ â„‚
-  domain : Set â„‚
-  poles : Set â„‚
-  polesIsolated : Prop
-  isMeromorphic : âˆ€ z, z âˆˆ U \ poles â†’ isComplexDifferentiable f z
+structure MeromorphicFunction (U : Set â„? where
+  f : â„?â†?â„?  domain : Set â„?  poles : Set â„?  polesIsolated : Prop
+  isMeromorphic : âˆ€ z, z âˆ?U \ poles â†?isComplexDifferentiable f z
 
 /-! ## Object Instances -/
 
@@ -72,10 +66,10 @@ def holomorphicDependencyNode : Dependency.TheoryNode :=
 /-! ## Theory Morphisms -/
 
 def entireToHolomorphic : String :=
-  "EntireFunctions â†ª HolomorphicFunctions (restriction functor)"
+  "EntireFunctions â†?HolomorphicFunctions (restriction functor)"
 
 def holomorphicToMeromorphic : String :=
-  "HolomorphicFunctions â†ª MeromorphicFunctions (inclusion with empty pole set)"
+  "HolomorphicFunctions â†?MeromorphicFunctions (inclusion with empty pole set)"
 
 /-! ## #eval Tests -/
 

@@ -6,9 +6,9 @@ on separate analyticity (statement).
 -/
 
 import MiniHolomorphicFunctions.Core.Objects
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
@@ -24,11 +24,8 @@ def productOfHolomorphic (f g : HolomorphicFunction U) : HolomorphicFunction U w
     { limitExists := True.intro, derivative := { real := 0, imag := 0 }, limitEq := True.intro }
 
 /-- Tensor product of holomorphic functions on product domains. -/
-structure TensorProductHolomorphic (U V : Set ‚ÑÇ) where
-  f : ‚ÑÇ ‚Üí ‚ÑÇ ‚Üí ‚ÑÇ
-  sourceDomain : Set ‚ÑÇ
-  targetDomain : Set ‚ÑÇ
-  isSeparatelyHolomorphic : Prop
+structure TensorProductHolomorphic (U V : Set ‚Ñ? where
+  f : ‚Ñ?‚Ü?‚Ñ?‚Ü?‚Ñ?  sourceDomain : Set ‚Ñ?  targetDomain : Set ‚Ñ?  isSeparatelyHolomorphic : Prop
   isJointlyHolomorphic : Prop
 
 /-- Pointwise product forms a commutative monoid structure on holomorphic functions. -/
@@ -42,7 +39,7 @@ def holomorphicProductMonoid : Axiom :=
     is jointly holomorphic (in the several-complex-variables sense). -/
 def hartogsTheorem : Axiom :=
   Axiom.mk "hartogsTheorem" (Formula.pred 0 [])
-    "If f(z‚ÇÅ, z‚ÇÇ) is holomorphic in z‚ÇÅ for each fixed z‚ÇÇ and holomorphic in z‚ÇÇ for each fixed z‚ÇÅ, then f is jointly holomorphic"
+    "If f(z‚Ç? z‚Ç? is holomorphic in z‚Ç?for each fixed z‚Ç?and holomorphic in z‚Ç?for each fixed z‚Ç? then f is jointly holomorphic"
 
 /-- Hartogs lemma: separate continuity implies joint continuity for holomorphic functions. -/
 def hartogsLemma : Axiom :=
@@ -52,15 +49,13 @@ def hartogsLemma : Axiom :=
 /-- Hartogs extension theorem: holomorphic functions extend across compact singularities. -/
 def hartogsExtensionTheorem : Axiom :=
   Axiom.mk "hartogsExtensionTheorem" (Formula.pred 0 [])
-    "Any holomorphic function on ‚ÑÇ¬≤\K with K compact extends to a holomorphic function on ‚ÑÇ¬≤"
+    "Any holomorphic function on ‚ÑÇ¬≤\K with K compact extends to a holomorphic function on ‚ÑÇ¬?
 
 /-! ## Product Domain Holomorphic Functions -/
 
 /-- A holomorphic function defined on a product domain. -/
-structure ProductDomainHolomorphic (U V : Set ‚ÑÇ) where
-  f : ‚ÑÇ ‚Üí ‚ÑÇ ‚Üí ‚ÑÇ
-  domain : Set ‚ÑÇ √ó Set ‚ÑÇ
-  isHolomorphic : Prop  -- jointly holomorphic on U √ó V
+structure ProductDomainHolomorphic (U V : Set ‚Ñ? where
+  f : ‚Ñ?‚Ü?‚Ñ?‚Ü?‚Ñ?  domain : Set ‚Ñ?√ó Set ‚Ñ?  isHolomorphic : Prop  -- jointly holomorphic on U √ó V
 
 /-! ## #eval Tests -/
 

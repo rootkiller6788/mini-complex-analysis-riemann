@@ -32,3 +32,6 @@ import MiniComplexIntegration.Bridges.ToAlgebra
 import MiniComplexIntegration.Bridges.ToTopology
 import MiniComplexIntegration.Bridges.ToGeometry
 import MiniComplexIntegration.Bridges.ToComputation
+import MiniComplexIntegration.Applications.ToPhysics
+import MiniComplexIntegration.Advanced.RiemannSurfaceIntegration
+import MiniComplexIntegration.Frontiers.ResearchDirections

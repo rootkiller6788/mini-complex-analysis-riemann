@@ -86,7 +86,7 @@ def deMoivre (θ : Float) (n : Nat) : ComplexNumbers :=
 def nthRootsOfUnity (n : Nat) : List ComplexNumbers :=
   if n = 0 then []
   else
-    let angle := 2 * Float.pi / Float.ofNat n
+    let angle := 2 * 3.141592653589793 / Float.ofNat n
     (List.range n).map fun k => cis (Float.ofNat k * angle)
 
 /-! ## Complex Plane as Metric Space -/

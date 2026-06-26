@@ -13,7 +13,7 @@ open MiniComplexIntegration
 
 def evaluateIntegralOneOverZ : ℂ :=
   -- ∫_{|z|=1} 1/z dz = 2πi
-  ComplexNumbers.mk 0 (2 * π)
+  ComplexNumbers.mk 0 (2 * Float.pi)
 
 def evaluateCauchyIntegral (f : ℂ → ℂ) (z₀ : ℂ) : ℂ :=
   -- f(z₀) = value of Cauchy integral formula
@@ -29,13 +29,13 @@ def evaluateTrigonometricIntegral (R : ℝ → ℝ) : ℝ :=
   -- ∫_0^{2π} R(cos θ, sin θ) dθ via unit circle
   0
 
-def evaluateIntegralSinc : ℝ :=
+def evaluateIntegralSinc : Float :=
   -- ∫_0^{∞} sin x / x dx = π/2
-  π / 2
+  Float.pi / 2
 
-def evaluateIntegralFresnel : ℝ :=
+def evaluateIntegralFresnel : Float :=
   -- ∫_0^{∞} sin(x²) dx = √(π/8)
-  Real.sqrt (π / 8)
+  Float.sqrt (Float.pi / 8)
 
 #eval "Computation.Evaluate: evaluateIntegralOneOverZ, evaluateCauchyIntegral"
 #eval "Computation.Evaluate: evaluateRealIntegralRational, evaluateTrigonometricIntegral"

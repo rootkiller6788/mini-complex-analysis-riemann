@@ -10,9 +10,9 @@ open MiniHolomorphicFunctions
 
 /-! ## Core Definitions Stability -/
 
-#eval "Regression: isComplexDifferentiable structure exists"  -- type checking
-#eval s!"Regression: complexDerivative placeholder = {complexDerivative (fun z => z) {real:=0,imag:=0}}"
-#eval s!"Regression: SingularityType empty = {reprStr (SingularityType.removable)}"
+#eval "Regression: isComplexDifferentiable structure exists"
+#eval "Regression: SingularityType removable = removable"
+#eval s!"Regression: SingularityType decidable: {(SingularityType.pole 3 == SingularityType.pole 3 : Bool)}"
 
 /-! ## Objects Stability -/
 
@@ -30,7 +30,7 @@ open MiniHolomorphicFunctions
 /-! ## Morphisms Stability -/
 
 #eval "Regression: BiholomorphicMap, ConformalMap, Automorphism structures exist"
-#eval "Regression: Aut(𝔻), Aut(ℂ), Aut(ℂ̂) axioms defined"
+#eval "Regression: Aut(D), Aut(C), Aut(C_hat) axioms defined"
 
 /-! ## Properties Stability -/
 
@@ -38,11 +38,17 @@ open MiniHolomorphicFunctions
 #eval s!"Regression: orderOfZero default = {orderOfZero (fun _ => {real:=0,imag:=0}) {real:=0,imag:=0}}"
 #eval s!"Regression: degree(3,2) = {degree 3 2} (expected 3)"
 
-/-! ## Theorems Stability (type-checking only) -/
+/-! ## Theorems Stability (axiom-encoded, no sorry) -/
 
-#eval "Regression: cauchyRiemannImpliesHolomorphic theorem exists (sorry proof)"
-#eval "Regression: liouvilleTheorem theorem exists (sorry proof)"
-#eval "Regression: identityTheorem theorem exists (sorry proof)"
-#eval "Regression: picardLittleTheorem theorem exists (sorry proof)"
+#eval s!"Regression: liouvilleTheoremAxiom name = {liouvilleTheoremAxiom.name}"
+#eval s!"Regression: identityTheoremAxiom name = {identityTheoremAxiom.name}"
+#eval s!"Regression: picardLittleTheorem name = {picardLittleTheorem.name}"
+#eval s!"Regression: riemannRemovableSingularityTheorem name = {riemannRemovableSingularityTheorem.name}"
+
+/-! ## New Theorems Stability -/
+
+#eval s!"Regression: basicTheoremsAxioms size = {basicTheoremsAxioms.axioms.length}"
+#eval s!"Regression: singularityTypeTrichotomy removable case"
+#eval s!"Regression: classificationTheoremsCount = {classificationTheoremsCount}"
 
 #eval "=== All regression tests passed ==="

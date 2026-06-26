@@ -23,6 +23,7 @@ in the mini-everything-math ecosystem.
 import MiniRiemannSurfaces.Core.Basic
 import MiniRiemannSurfaces.Core.Objects
 import MiniRiemannSurfaces.Core.Laws
+import MiniRiemannSurfaces.Core.Invariants
 import MiniRiemannSurfaces.Morphisms.Hom
 import MiniRiemannSurfaces.Morphisms.Iso
 import MiniRiemannSurfaces.Morphisms.Equiv
@@ -34,11 +35,13 @@ import MiniRiemannSurfaces.Properties.Invariants
 import MiniRiemannSurfaces.Properties.Preservation
 import MiniRiemannSurfaces.Properties.ClassificationData
 import MiniRiemannSurfaces.Theorems.Basic
+import MiniRiemannSurfaces.Theorems.DivisorTheory
 import MiniRiemannSurfaces.Theorems.UniversalProperties
 import MiniRiemannSurfaces.Theorems.Classification
 import MiniRiemannSurfaces.Theorems.Main
 import MiniRiemannSurfaces.Examples.Standard
 import MiniRiemannSurfaces.Examples.Counterexamples
+import MiniRiemannSurfaces.Examples.Computations
 import MiniRiemannSurfaces.Bridges.ToAlgebra
 import MiniRiemannSurfaces.Bridges.ToTopology
 import MiniRiemannSurfaces.Bridges.ToGeometry

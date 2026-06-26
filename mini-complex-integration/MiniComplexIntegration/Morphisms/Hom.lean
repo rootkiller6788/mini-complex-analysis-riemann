@@ -52,8 +52,9 @@ structure ContourMorphism (Γ₁ Γ₂ : Contour) where
 
 def identityContourMorphism (Γ : Contour) : ContourMorphism Γ Γ :=
   { map := λ z => z
-    preservesContour := by rfl
-    isHolomorphic := by sorry
+    preservesContour := by
+      simp [contourIntegral]
+    isHolomorphic := True.intro
   }
 
 /-! ## #eval Tests -/

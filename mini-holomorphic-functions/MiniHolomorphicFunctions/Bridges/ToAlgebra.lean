@@ -7,17 +7,17 @@ Weierstrass product theorem.
 -/
 
 import MiniHolomorphicFunctions.Theorems.Main
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
 /-! ## Holomorphic Functions as an Integral Domain -/
 
-/-- O(D) is an integral domain when D is connected. -/
-def holomorphicRingIsIntegralDomain : Axiom :=
-  Axiom.mk "holomorphicRingIsIntegralDomain" (Formula.pred 0 [])
+/-- O(D) is an integral domain when D is connected. (Bridge to algebra) -/
+def holomorphicIntegralDomainAlgebra : Axiom :=
+  Axiom.mk "holomorphicIntegralDomainAlgebra" (Formula.pred 0 [])
     "For a connected domain D, O(D) is an integral domain: if fg=0 then f=0 or g=0"
 
 /-- The field of meromorphic functions is the fraction field of O(D). -/
@@ -57,19 +57,19 @@ def weierstrassProductTheorem : Axiom :=
 /-- Weierstrass factorization of sin(πz): sin(πz) = πz Π(1 - z²/n²). -/
 def sineProductFormula : Axiom :=
   Axiom.mk "sineProductFormula" (Formula.pred 0 [])
-    "sin(πz) = πz Π_{n=1}^∞ (1 - z²/n²)"
+    "sin(πz) = πz Π_{n=1}^�?(1 - z²/n²)"
 
 /-- Hadamard factorization: for entire functions of finite order, g(z) is a polynomial. -/
 def hadamardFactorization : Axiom :=
   Axiom.mk "hadamardFactorization" (Formula.pred 0 [])
-    "For entire f of finite order ρ, f(z) = z^m e^{P(z)} Π E_n(z/a_n) with deg(P) ≤ ρ"
+    "For entire f of finite order ρ, f(z) = z^m e^{P(z)} Π E_n(z/a_n) with deg(P) �?ρ"
 
 /-! ## Homomorphisms Between Holomorphic Rings -/
 
-/-- Pullback φ*: O(V) → O(U) is a continuous ℂ-algebra homomorphism. -/
+/-- Pullback φ*: O(V) �?O(U) is a continuous �?algebra homomorphism. -/
 def pullbackIsContinuousHomomorphism : Axiom :=
   Axiom.mk "pullbackIsContinuousHomomorphism" (Formula.pred 0 [])
-    "For φ: U → V holomorphic, φ*: O(V) → O(U) is a continuous ℂ-algebra homomorphism"
+    "For φ: U �?V holomorphic, φ*: O(V) �?O(U) is a continuous �?algebra homomorphism"
 
 /-- The spectrum of O(D) as a topological algebra. -/
 def spectrumOfHolomorphicRing : Axiom :=

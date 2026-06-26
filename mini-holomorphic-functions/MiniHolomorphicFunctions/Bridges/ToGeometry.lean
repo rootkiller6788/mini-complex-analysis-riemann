@@ -6,21 +6,19 @@ Schwarz-Christoffel mapping, Beltrami equation.
 -/
 
 import MiniHolomorphicFunctions.Bridges.ToTopology
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
 /-! ## Conformal Geometry -/
 
 /-- A conformal metric on a domain: ds² = ρ(z)² |dz|². -/
-structure ConformalMetric (D : Set ℂ) where
-  density : ℂ → ℝ
-  isPositive : ∀ z, z ∈ D → density z > 0
+structure ConformalMetric (D : Set �? where
+  density : �?�?�?  isPositive : ∀ z, z �?D �?density z > 0
   isSmooth : Prop
-  gaussianCurvature : ℂ → ℝ
-  curvatureFormula : Prop  -- K = (-4/ρ²) · ∂∂̄ log ρ
+  gaussianCurvature : �?�?�?  curvatureFormula : Prop  -- K = (-4/ρ²) · ∂∂̄ log ρ
 
 /-- The Poincaré metric on the unit disc: ds² = 4|dz|²/(1-|z|²)². -/
 def poincareMetric : Axiom :=
@@ -30,7 +28,7 @@ def poincareMetric : Axiom :=
 /-- Schwarz-Pick lemma: holomorphic maps are contractions w.r.t. Poincaré metric. -/
 def schwarzPickLemma : Axiom :=
   Axiom.mk "schwarzPickLemma" (Formula.pred 0 [])
-    "Every holomorphic map f: 𝔻 → 𝔻 is a contraction in the Poincaré metric: d_ρ(f(z),f(w)) ≤ d_ρ(z,w)"
+    "Every holomorphic map f: 𝔻 �?𝔻 is a contraction in the Poincaré metric: d_ρ(f(z),f(w)) �?d_ρ(z,w)"
 
 /-! ## Schwarz-Christoffel Mapping -/
 
@@ -42,7 +40,7 @@ def schwarzChristoffelFormula : Axiom :=
 /-- The Schwarz-Christoffel parameter problem: finding the pre-vertices. -/
 def schwarzChristoffelParameterProblem : Axiom :=
   Axiom.mk "schwarzChristoffelParameterProblem" (Formula.pred 0 [])
-    "Given target polygon vertices w_k, find the pre-vertices x_k on ℝ such that the SC integral maps to the given polygon"
+    "Given target polygon vertices w_k, find the pre-vertices x_k on �?such that the SC integral maps to the given polygon"
 
 /-- Numerical Schwarz-Christoffel mapping. -/
 def schwarzChristoffelNumerical : Axiom :=
@@ -52,20 +50,19 @@ def schwarzChristoffelNumerical : Axiom :=
 /-! ## Beltrami Equation -/
 
 /-- The Beltrami equation: f_z̄ = μ f_z where |μ| < 1. -/
-structure BeltramiCoefficient (D : Set ℂ) where
-  μ : ℂ → ℂ
-  essentialSupNorm_lt_one : Prop  -- ‖μ‖_∞ < 1
+structure BeltramiCoefficient (D : Set �? where
+  μ : �?�?�?  essentialSupNorm_lt_one : Prop  -- ‖μ‖_�?< 1
   isMeasurable : Prop
 
 /-- The Beltrami equation ∂̄f = μ ∂f. Solutions are quasiconformal maps. -/
 def beltramiEquation : Axiom :=
   Axiom.mk "beltramiEquation" (Formula.pred 0 [])
-    "The Beltrami equation f_z̄ = μ(z) f_z with ‖μ‖_∞ < 1 has homeomorphic solutions (quasiconformal maps)"
+    "The Beltrami equation f_z̄ = μ(z) f_z with ‖μ‖_�?< 1 has homeomorphic solutions (quasiconformal maps)"
 
 /-- Measurable Riemann mapping theorem (existence and uniqueness). -/
 def measurableRiemannMappingTheorem : Axiom :=
   Axiom.mk "measurableRiemannMappingTheorem" (Formula.pred 0 [])
-    "For μ with ‖μ‖_∞ < 1, there exists a unique quasiconformal map f^μ: ℂ̂ → ℂ̂ fixing 0,1,∞ solving f_z̄ = μ f_z"
+    "For μ with ‖μ‖_�?< 1, there exists a unique quasiconformal map f^μ: ℂ�?�?ℂ�?fixing 0,1,�?solving f_z̄ = μ f_z"
 
 /-- The Beltrami coefficient as a complex dilatation. -/
 def complexDilatation : Axiom :=
@@ -76,9 +73,7 @@ def complexDilatation : Axiom :=
 
 /-- The conformal modulus of a quadrilateral. -/
 structure ConformalModulus where
-  domain : Set ℂ
-  modulus : ℝ
-  extremalLength : Prop
+  domain : Set �?  modulus : �?  extremalLength : Prop
 
 /-- Conformal modulus is a conformal invariant. -/
 def conformalModulusInvariant : Axiom :=

@@ -37,8 +37,8 @@ structure FubiniContourIntegral (f : ℂ × ℂ → ℂ) (Γ₁ Γ₂ : Contour)
 structure TensorProductIntegration (Ω₁ Ω₂ : Set ℂ) where
   productDomain : Set (ℂ × ℂ)
   productContour : ProductContour
-    (Contour.mk (λ _ => ComplexNumbers.mk 0 0) 0 1 (by sorry) (by sorry) 1)
-    (Contour.mk (λ _ => ComplexNumbers.mk 0 0) 0 1 (by sorry) (by sorry) 1)
+    (trivialContour (ComplexNumbers.mk 0 0))
+    (trivialContour (ComplexNumbers.mk 0 0))
 
 /-! ## Product Homology -/
 

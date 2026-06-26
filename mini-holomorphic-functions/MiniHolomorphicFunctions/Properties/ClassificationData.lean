@@ -7,9 +7,9 @@ Picard theorems.
 -/
 
 import MiniHolomorphicFunctions.Properties.Preservation
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
@@ -18,17 +18,17 @@ namespace MiniHolomorphicFunctions
 /-- Classification theorem: every isolated singularity is removable, a pole, or essential. -/
 def singularityClassification : Axiom :=
   Axiom.mk "singularityClassification" (Formula.pred 0 [])
-    "Every isolated singularity is exactly one of: removable, pole (of some order n ∈ ℕ), or essential"
+    "Every isolated singularity is exactly one of: removable, pole (of some order n �?�?, or essential"
 
 /-- Removable singularity characterization: f is bounded near z₀. -/
 def removableSingularityCharacterization : Axiom :=
   Axiom.mk "removableSingularityCharacterization" (Formula.pred 0 [])
     "An isolated singularity at z₀ is removable iff f is bounded in a punctured neighborhood of z₀"
 
-/-- Pole characterization: |f(z)| → ∞ as z → z₀. -/
+/-- Pole characterization: |f(z)| �?�?as z �?z₀. -/
 def poleCharacterization : Axiom :=
   Axiom.mk "poleCharacterization" (Formula.pred 0 [])
-    "An isolated singularity at z₀ is a pole iff lim_{z→z₀} |f(z)| = ∞"
+    "An isolated singularity at z₀ is a pole iff lim_{z→z₀} |f(z)| = �?
 
 /-- Essential singularity characterization (by exclusion). -/
 def essentialSingularityCharacterization : Axiom :=
@@ -49,10 +49,10 @@ def liouvilleFromRiemannRemovable : Axiom :=
 
 /-! ## Casorati-Weierstrass Theorem -/
 
-/-- Casorati-Weierstrass: near an essential singularity, the image is dense in ℂ. -/
+/-- Casorati-Weierstrass: near an essential singularity, the image is dense in �? -/
 def casoratiWeierstrassTheorem : Axiom :=
   Axiom.mk "casoratiWeierstrass" (Formula.pred 0 [])
-    "If f has an essential singularity at z₀, then for any punctured neighborhood U of z₀, f(U) is dense in ℂ"
+    "If f has an essential singularity at z₀, then for any punctured neighborhood U of z₀, f(U) is dense in �?
 
 /-- Consequence: exp(1/z) has an essential singularity at 0, with dense image in ℂ\{0}. -/
 def expOneOverzEssentialSingularity : Axiom :=
@@ -64,7 +64,7 @@ def expOneOverzEssentialSingularity : Axiom :=
 /-- Little Picard: a non-constant entire function misses at most one value. -/
 def picardLittleTheorem : Axiom :=
   Axiom.mk "picardLittleTheorem" (Formula.pred 0 [])
-    "If f is a non-constant entire function, then f(ℂ) is either ℂ or ℂ\{a} for a single omitted value a"
+    "If f is a non-constant entire function, then f(�? is either �?or ℂ\{a} for a single omitted value a"
 
 /-- Great Picard: near an essential singularity, f attains every value (except one) infinitely often. -/
 def picardGreatTheorem : Axiom :=

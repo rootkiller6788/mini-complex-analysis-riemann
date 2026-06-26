@@ -36,7 +36,7 @@ structure PeriodOfDifferential (ω : DifferentialForm) (Γ : Contour) where
 structure IntegralAsPeriod (f : ℂ → ℂ) where
   periods : List ℂ
   -- Primitive differences on homology basis
-  equalsIntegral : contourIntegral f (Contour.mk (λ _ => ComplexNumbers.mk 0 0) 0 1 (by sorry) (by sorry) 1) ∈ periods
+  equalsIntegral : contourIntegral f (trivialContour (ComplexNumbers.mk 0 0)) ∈ periods
 
 /-! ## Intersection Number -/
 

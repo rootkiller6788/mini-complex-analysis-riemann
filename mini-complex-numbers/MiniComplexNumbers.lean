@@ -17,6 +17,7 @@ the field `ℂ`, and bridges to algebra, topology, geometry, and computation.
 import MiniComplexNumbers.Core.Basic
 import MiniComplexNumbers.Core.Laws
 import MiniComplexNumbers.Core.Objects
+import MiniComplexNumbers.Core.GaussianIntegers
 import MiniComplexNumbers.Morphisms.Hom
 import MiniComplexNumbers.Morphisms.Iso
 import MiniComplexNumbers.Morphisms.Equiv
@@ -37,3 +38,5 @@ import MiniComplexNumbers.Bridges.ToAlgebra
 import MiniComplexNumbers.Bridges.ToTopology
 import MiniComplexNumbers.Bridges.ToGeometry
 import MiniComplexNumbers.Bridges.ToComputation
+import MiniComplexNumbers.Bridges.ToNumberTheory
+import MiniComplexNumbers.Bridges.ToPhysics

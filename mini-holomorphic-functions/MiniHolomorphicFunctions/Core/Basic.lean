@@ -5,9 +5,10 @@ Complex differentiability, Cauchy-Riemann equations, holomorphic functions,
 analyticity, singularities. Core definitions for single-variable complex analysis.
 -/
 
-import MiniMathKernel
+import MiniHolomorphicFunctions.KernelCompat
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
@@ -44,7 +45,7 @@ structure isEntire (f : ℂ → ℂ) : Prop where
 
 /-- The Cauchy-Riemann equations for f = u + iv:
     ∂u/∂x = ∂v/∂y  and  ∂u/∂y = -∂v/∂x. -/
-structure CauchyRiemannEquations (u v : ℝ → ℝ → ℝ) (x y : ℝ) : Prop where
+structure CauchyRiemannEquations (u v : Float → Float → Float) (x y : Float) : Prop where
   cr1 : Prop  -- ∂u/∂x = ∂v/∂y
   cr2 : Prop  -- ∂u/∂y = -∂v/∂x
 
@@ -58,7 +59,7 @@ def cauchyRiemannComplex (f : ℂ → ℂ) (z₀ : ℂ) : Prop :=
 /-- f is analytic at z₀ if it has a convergent power series expansion near z₀. -/
 structure isAnalytic (f : ℂ → ℂ) (z₀ : ℂ) : Prop where
   coefficients : Nat → ℂ
-  radius : ℝ
+  radius : Float
   radiusPositive : Prop  -- radius > 0
   powerSeriesConverges : Prop
   equalsSum : Prop  -- f(z) = Σ a_n (z-z₀)^n for |z-z₀| < radius

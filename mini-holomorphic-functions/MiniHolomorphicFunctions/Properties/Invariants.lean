@@ -6,41 +6,41 @@ and degree of rational functions.
 -/
 
 import MiniHolomorphicFunctions.Core.Laws
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
 /-! ## Order of Zero -/
 
 /-- The order/multiplicity of a zero of a holomorphic function at a point. -/
-def orderOfZero (f : ℂ → ℂ) (z₀ : ℂ) : Nat :=
-  0  -- placeholder: the smallest n such that f⁽ⁿ⁾(z₀) ≠ 0
+def orderOfZero (f : �?�?�? (z₀ : �? : Nat :=
+  0  -- placeholder: the smallest n such that f⁽ⁿ�?z₀) �?0
 
 /-- f has a zero of order n at z₀. -/
-structure ZeroOfOrder (f : ℂ → ℂ) (z₀ : ℂ) (n : Nat) where
+structure ZeroOfOrder (f : �?�?�? (z₀ : �? (n : Nat) where
   isZero : f z₀ = { real := 0, imag := 0 }
-  firstNonzeroDerivative : Prop  -- f⁽ᵏ⁾(z₀) = 0 for k < n, f⁽ⁿ⁾(z₀) ≠ 0
+  firstNonzeroDerivative : Prop  -- f⁽ᵏ�?z₀) = 0 for k < n, f⁽ⁿ�?z₀) �?0
 
 /-! ## Order of Pole -/
 
 /-- The order of a pole of a meromorphic function at a point. -/
-def orderOfPole (f : ℂ → ℂ) (z₀ : ℂ) : Nat :=
+def orderOfPole (f : �?�?�? (z₀ : �? : Nat :=
   0  -- placeholder: the smallest n such that (z-z₀)^n f(z) has a removable singularity
 
 /-- f has a pole of order n at z₀. -/
-structure PoleOfOrder (f : ℂ → ℂ) (z₀ : ℂ) (n : Nat) where
+structure PoleOfOrder (f : �?�?�? (z₀ : �? (n : Nat) where
   h : Prop  -- (z-z₀)^n f(z) is holomorphic and nonzero at z₀
 
 /-! ## Winding Number / Index -/
 
 /-- The winding number of a closed curve γ around a point a. -/
-def windingNumber (γ : ℝ → ℂ) (a : ℂ) : ℤ :=
+def windingNumber (γ : �?�?�? (a : �? : �?:=
   0  -- placeholder: (1/2πi) ∮_γ dz/(z-a)
 
 /-- The index of γ with respect to a = winding number. -/
-def index (γ : ℝ → ℂ) (a : ℂ) : ℤ := windingNumber γ a
+def index (γ : �?�?�? (a : �? : �?:= windingNumber γ a
 
 /-- Winding number properties. -/
 def windingNumberProperties : Axiom :=
@@ -50,11 +50,11 @@ def windingNumberProperties : Axiom :=
 /-! ## Residue -/
 
 /-- The residue of f at an isolated singularity z₀. -/
-def residue (f : ℂ → ℂ) (z₀ : ℂ) : ℂ :=
+def residue (f : �?�?�? (z₀ : �? : �?:=
   { real := 0, imag := 0 }  -- placeholder: coefficient a_{-1} in Laurent expansion
 
 /-- Residue at a simple pole: Res(f, z₀) = lim_{z→z₀} (z-z₀)f(z). -/
-def residueAtSimplePole (f : ℂ → ℂ) (z₀ : ℂ) : ℂ :=
+def residueAtSimplePole (f : �?�?�? (z₀ : �? : �?:=
   { real := 0, imag := 0 }
 
 /-! ## Degree of Rational Function -/

@@ -17,7 +17,7 @@ structure HomologyEquivalence (c₁ c₂ : Cycle) where
   forward : Cycle → Cycle
   backward : Cycle → Cycle
   isEquivalence : Prop
-  preservesIntegral : ∀ (f : ℂ → ℂ), (∀ z, Prop) → contourIntegral f (Contour.mk (λ _ => ComplexNumbers.mk 0 0) 0 1 (by sorry) (by sorry) 1) = contourIntegral f (Contour.mk (λ _ => ComplexNumbers.mk 0 0) 0 1 (by sorry) (by sorry) 1)
+  preservesIntegral : ∀ (f : ℂ → ℂ), (∀ z, Prop) → contourIntegral f (trivialContour (ComplexNumbers.mk 0 0)) = contourIntegral f (trivialContour (ComplexNumbers.mk 0 0))
 
 /-! ## Homotopic Contours Give Same Integral -/
 

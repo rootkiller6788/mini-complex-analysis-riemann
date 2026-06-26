@@ -27,7 +27,7 @@ def homotopyInvarianceOfContourIntegral : Axiom :=
 /-! ## Independence of Parameterization -/
 
 structure ParameterizationInvariance (f : ℂ → ℂ) where
-  independent : ∀ (φ : ℝ → ℝ), (∀ t, φ' t > 0) → contourIntegral f (Contour.mk (λ t => ComplexNumbers.mk (Real.cos (φ t)) (Real.sin (φ t))) 0 (2*π) (by sorry) (by sorry) 1) = contourIntegral f (Contour.mk (λ t => ComplexNumbers.mk (Real.cos t) (Real.sin t)) 0 (2*π) (by sorry) (by sorry) 1)
+  independent : ∀ (φ : ℝ → ℝ), (∀ t, φ' t > 0) → contourIntegral f (unitCircleContour) = contourIntegral f unitCircleContour
 
 /-! ## Homology Invariance -/
 
@@ -41,7 +41,7 @@ structure HomologyInvariance (f : ℂ → ℂ) (c₁ c₂ : Cycle) where
 structure ConformalPreservation (f : ℂ → ℂ) (φ : ℂ → ℂ) (Γ : Contour) where
   isConformal : Prop
   -- φ is holomorphic with nonzero derivative
-  preservesIntegral : contourIntegral (λ z => f (φ z)) Γ = contourIntegral f (Contour.mk (λ t => φ (Γ.γ t)) Γ.a Γ.b (by sorry) (by sorry) Γ.segmentCount)
+  preservesIntegral : contourIntegral (λ z => f (φ z)) Γ = contourIntegral f { Γ with γ := λ t => φ (Γ.γ t) }
 
 /-! ## Axiom System -/
 

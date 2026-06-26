@@ -2,43 +2,43 @@
 # MiniHolomorphicFunctions.Examples.Counterexamples
 
 Counterexamples: functions that are NOT holomorphic:
-conjugation z ↦ z̄, |z|², exp(1/z) with essential singularity at 0,
+conjugation z �?z̄, |z|², exp(1/z) with essential singularity at 0,
 and log z requiring a branch cut.
 -/
 
 import MiniHolomorphicFunctions.Examples.Standard
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
-/-! ## Conjugation z ↦ z̄ is NOT Holomorphic -/
+/-! ## Conjugation z �?z̄ is NOT Holomorphic -/
 
 /-- The complex conjugate function f(z) = z̄ is not complex-differentiable anywhere. -/
-def complexConjugation (z : ℂ) : ℂ :=
+def complexConjugation (z : �? : �?:=
   ComplexNumbers.conj z
 
 /-- Conjugation fails the Cauchy-Riemann equations. -/
 def conjugationFailsCR : Axiom :=
   Axiom.mk "conjugationFailsCR" (Formula.pred 0 [])
-    "f(z) = z̄ satisfies ∂u/∂x = 1 ≠ -1 = ∂v/∂y, so it fails Cauchy-Riemann"
+    "f(z) = z̄ satisfies ∂u/∂x = 1 �?-1 = ∂v/∂y, so it fails Cauchy-Riemann"
 
 /-- Anti-holomorphic: z̄ is differentiable w.r.t. z̄ but not z. -/
 def conjugationIsAntiholomorphic : Axiom :=
   Axiom.mk "conjugationIsAntiholomorphic" (Formula.pred 0 [])
-    "z ↦ z̄ is anti-holomorphic: ∂f/∂z = 0 but ∂f/∂z̄ = 1"
+    "z �?z̄ is anti-holomorphic: ∂f/∂z = 0 but ∂f/∂z̄ = 1"
 
 /-! ## |z|² is NOT Holomorphic -/
 
 /-- The squared modulus function f(z) = |z|² is not holomorphic except at 0. -/
-def squaredModulus (z : ℂ) : ℂ :=
+def squaredModulus (z : �? : �?:=
   { real := ComplexNumbers.modulus z * ComplexNumbers.modulus z, imag := 0 }
 
 /-- |z|² is real-differentiable but not complex-differentiable (except at 0). -/
 def squaredModulusNotHolomorphic : Axiom :=
   Axiom.mk "squaredModulusNotHolomorphic" (Formula.pred 0 [])
-    "f(z) = |z|² = z * z̄ is not complex-differentiable anywhere (except at 0); ∂f/∂z̄ = z ≠ 0"
+    "f(z) = |z|² = z * z̄ is not complex-differentiable anywhere (except at 0); ∂f/∂z̄ = z �?0"
 
 /-- |z|² as the product of a holomorphic and anti-holomorphic function. -/
 def squaredModulusFactorization : Axiom :=
@@ -48,7 +48,7 @@ def squaredModulusFactorization : Axiom :=
 /-! ## exp(1/z) has Essential Singularity at 0 -/
 
 /-- The function f(z) = exp(1/z) has an essential singularity at 0. -/
-def expOneOverZ (z : ℂ) : ℂ :=
+def expOneOverZCounterexample (z : �? : �?:=
   ComplexNumbers.exp { real := 1.0 / ComplexNumbers.modulus z, imag := 0 }  -- placeholder
 
 /-- In any neighborhood of 0, exp(1/z) takes every nonzero complex value. -/
@@ -72,17 +72,17 @@ def logCannotBeEntire : Axiom :=
 /-- Any branch of log z on a simply connected domain avoiding 0 is holomorphic. -/
 def logOnSimplyConnected : Axiom :=
   Axiom.mk "logOnSimplyConnected" (Formula.pred 0 [])
-    "On any simply connected domain D ⊂ ℂ\\{0}, a holomorphic branch of log z exists"
+    "On any simply connected domain D �?ℂ\\{0}, a holomorphic branch of log z exists"
 
 /-- The branch cut: log z is discontinuous across the negative real axis. -/
 def logBranchCut : Axiom :=
   Axiom.mk "logBranchCut" (Formula.pred 0 [])
-    "The principal branch of log z has a branch cut along (-∞,0] with jump of 2πi"
+    "The principal branch of log z has a branch cut along (-�?0] with jump of 2πi"
 
 /-! ## #eval Tests -/
 
 #eval "Counterexamples: conjugation z̄ is NOT holomorphic (fails Cauchy-Riemann)"
-#eval "Counterexamples: |z|² = z·z̄ is NOT holomorphic (∂f/∂z̄ = z ≠ 0)"
+#eval "Counterexamples: |z|² = z·z̄ is NOT holomorphic (∂f/∂z̄ = z �?0)"
 #eval "Counterexamples: exp(1/z) has essential singularity at 0 (Picard: omits only 0)"
 #eval "Counterexamples: log z requires branch cut (monodromy 2πi around 0)"
 

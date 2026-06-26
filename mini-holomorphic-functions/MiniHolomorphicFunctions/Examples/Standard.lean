@@ -7,15 +7,15 @@ log z on the slit plane.
 -/
 
 import MiniHolomorphicFunctions.Core.Laws
-import MiniMathKernel
+import MiniObjectKernel
 
-open MiniMathKernel
+open MiniObjectKernel
 
 namespace MiniHolomorphicFunctions
 
 /-! ## Polynomials z^n are Entire -/
 
-/-- The power function z^n is entire for any n ∈ ℕ. -/
+/-- The power function z^n is entire for any n �?�? -/
 def monomialEntire (n : Nat) : EntireFunction where
   f := fun z => ComplexNumbers.pow z n
   isEntire := fun z => {
@@ -26,8 +26,7 @@ def monomialEntire (n : Nat) : EntireFunction where
 
 /-- Any polynomial is entire. -/
 structure Polynomial extends EntireFunction where
-  coefficients : List ℂ
-  degree : Nat
+  coefficients : List �?  degree : Nat
   formula : Prop  -- P(z) = Σ a_k z^k
 
 /-! ## Exponential e^z is Entire -/
@@ -44,7 +43,7 @@ def complexExponentialEntire : EntireFunction where
 /-- Periodicity of e^z: e^{z+2πi} = e^z. -/
 def exponentialPeriodicity : Axiom :=
   Axiom.mk "exponentialPeriodicity" (Formula.pred 0 [])
-    "exp(z + 2πi) = exp(z) for all z ∈ ℂ"
+    "exp(z + 2πi) = exp(z) for all z �?�?
 
 /-! ## Trigonometric Functions: sin z, cos z are Entire -/
 
@@ -69,14 +68,14 @@ def complexCosEntire : EntireFunction where
 /-- Euler's formula: e^{iz} = cos z + i sin z. -/
 def eulerFormula : Axiom :=
   Axiom.mk "eulerFormula" (Formula.pred 0 [])
-    "e^{iz} = cos z + i sin z for all z ∈ ℂ"
+    "e^{iz} = cos z + i sin z for all z �?�?
 
 /-! ## 1/z: Holomorphic on ℂ\{0} -/
 
 /-- The function f(z) = 1/z is holomorphic on ℂ\{0} with a simple pole at 0. -/
-def reciprocalFunction : HolomorphicFunction ({z : ℂ | z ≠ { real := 0, imag := 0}}) where
+def reciprocalFunction : HolomorphicFunction ({z : �?| z �?{ real := 0, imag := 0}}) where
   f := fun z => { real := 0, imag := 0 }  -- placeholder: 1/z
-  domain := {z | z ≠ { real := 0, imag := 0}}
+  domain := {z | z �?{ real := 0, imag := 0}}
   isDomain := True.intro
   isHolomorphic := fun z hz => {
     limitExists := True.intro
@@ -91,10 +90,10 @@ def reciprocalSimplePole : Axiom :=
 
 /-! ## log z on the Slit Plane -/
 
-/-- The principal branch of the complex logarithm, holomorphic on ℂ\(-∞, 0]. -/
-def complexLogBranch : HolomorphicFunction ({z : ℂ | ¬(z.real ≤ 0 ∧ z.imag = 0)}) where
+/-- The principal branch of the complex logarithm, holomorphic on ℂ\(-�? 0]. -/
+def complexLogBranch : HolomorphicFunction ({z : �?| ¬(z.real �?0 �?z.imag = 0)}) where
   f := ComplexNumbers.log
-  domain := {z | ¬(z.real ≤ 0 ∧ z.imag = 0)}
+  domain := {z | ¬(z.real �?0 �?z.imag = 0)}
   isDomain := True.intro
   isHolomorphic := fun z hz => {
     limitExists := True.intro
@@ -105,7 +104,7 @@ def complexLogBranch : HolomorphicFunction ({z : ℂ | ¬(z.real ≤ 0 ∧ z.ima
 /-- Derivative of log z is 1/z on the slit plane. -/
 def logDerivative : Axiom :=
   Axiom.mk "logDerivative" (Formula.pred 0 [])
-    "d/dz log(z) = 1/z on ℂ\\\(-∞,0]"
+    "d/dz log(z) = 1/z on ℂ\\\(-�?0]"
 
 /-! ## #eval Tests -/
 
@@ -117,7 +116,7 @@ def logDerivative : Axiom :=
 #eval "Examples.Standard: Entire: z^n, e^z, sin z, cos z | Holomorphic on ℂ\\{0}: 1/z | Slit plane: log z"
 
 -- Additional #eval for the 6 minimum
-#eval "Examples.Standard: Verified — all standard holomorphic functions defined"
+#eval "Examples.Standard: Verified �?all standard holomorphic functions defined"
 #eval s!"Total entire functions defined: 4 (z^n, e^z, sin z, cos z)"
 
 end MiniHolomorphicFunctions
